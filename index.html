@@ -70,7 +70,7 @@
     <form id="quizForm">
         <label for="sim"><input type="radio" id="sim" name="resposta" value="Sim"> Sim</label>
         <label for="nao"><input type="radio" id="nao" name="resposta" value="Não"> Não</label>
-        <button type="submit">Enviar</button>
+        <button type="submit" id="enviarButton">Enviar</button>
     </form>
 </div>
 
@@ -78,6 +78,10 @@
     document.getElementById("quizForm").addEventListener("submit", function(event) {
         event.preventDefault();
         var resposta = document.querySelector('input[name="resposta"]:checked').value;
+        gtag('event', 'enviar_quiz', {
+            'event_category': 'Quiz',
+            'event_label': resposta
+        });
         if (resposta === "Sim") {
             alert("Obrigado por participar! Sua contribuição é valiosa.");
         } else {
