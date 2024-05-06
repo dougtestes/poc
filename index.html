@@ -5,7 +5,7 @@
   <script>
     (function(w,d,s,l,i){
       w[l]=w[l]||[];
-      w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
+      w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
       var f=d.getElementsByTagName(s)[0],
       j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
       j.async=true;
@@ -14,11 +14,8 @@
     })(window,document,'script','dataLayer','GTM-PD8DNLJ9');
   </script>
   <!-- End Google Tag Manager -->
-
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quiz PDCA</title>
-  <!-- Início do código de rastreamento do Google Analytics -->
+  
+  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-1PFXPS9B52"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -27,13 +24,10 @@
 
     gtag('config', 'G-1PFXPS9B52');
   </script>
-  <!-- Fim do código de rastreamento do Google Analytics -->
-  <!-- Google Tag Manager (noscript) -->
-  <noscript>
-    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PD8DNLJ9" height="0" width="0" style="display:none;visibility:hidden"></iframe>
-  </noscript>
-  <!-- End Google Tag Manager (noscript) -->
-
+  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz PDCA</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -98,18 +92,23 @@
   document.getElementById("quizForm").addEventListener("submit", function(event) {
     event.preventDefault();
     var resposta = document.querySelector('input[name="resposta"]:checked').value;
+    gtag('event', 'enviar_quiz', {
+      'event_category': 'Quiz',
+      'event_label': resposta
+    });
     if (resposta === "Sim") {
       alert("Obrigado por participar! Sua contribuição é valiosa.");
     } else {
       alert("Por favor, acesse o book de indicadores para esclarecer suas dúvidas.");
     }
-    // Enviar evento para o Google Analytics após o envio do formulário
-    gtag('event', 'submit', {
-      'event_category': 'Quiz PDCA',
-      'event_label': resposta
-    });
   });
 </script>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript>
+  <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PPK4HT2P" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 </body>
 </html>
